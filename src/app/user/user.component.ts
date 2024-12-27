@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, computed, signal} from '@angular/core';
 import { DUMMY_USERS } from "../dummy-users";
 import {NgOptimizedImage} from "@angular/common";
 
@@ -15,6 +15,7 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 })
 export class UserComponent {
   selectedUser = DUMMY_USERS[randomIndex];
+  //imagePath = computed(()=> 'assets/users/'+this.selectedUser().avatar);
 
   // get is used to guarantee the return of something,
   // then you can use in template like a property "imagePath" this is considered a good practice.
@@ -24,5 +25,6 @@ export class UserComponent {
 
   onSelectUser() {
     console.log("CLICKED!!! ")
+    this.selectedUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
   }
 }
