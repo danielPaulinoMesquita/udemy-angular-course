@@ -1,8 +1,5 @@
-import {Component, computed, Input, signal} from '@angular/core';
-import { DUMMY_USERS } from "../dummy-users";
+import {Component, Input} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
-
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
 
 @Component({
   selector: 'app-user',
@@ -14,8 +11,8 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input() avatar!: string
-  @Input() name!: string
+  @Input({required: true}) avatar!: string
+  @Input({required: true}) name!: string
 
   get imagePath() {
     return "assets/users/" + this.avatar;
