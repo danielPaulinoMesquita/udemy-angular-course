@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, input, Input, output, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
 
 // type User = {
