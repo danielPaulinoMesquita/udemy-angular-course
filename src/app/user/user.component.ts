@@ -11,19 +11,25 @@ import {NgOptimizedImage} from "@angular/common";
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) id!: string;
-  @Input({required: true}) avatar!: string
-  @Input({required: true}) name!: string
+  // this is not more useful.
+  // @Input({required: true}) id!: string;
+  // @Input({required: true}) avatar!: string
+  // @Input({required: true}) name!: string
+  @Input({required: true}) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  }
   @Output() select = new EventEmitter<string>() // Adding a type, ensure that value passed to select is string
 
   // this output unlike signal, it is another thing
   // select = output<string>()
 
   get imagePath() {
-    return "assets/users/" + this.avatar;
+    return "assets/users/" + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id); // If we pass a number to select, it shows up a warning error because new EventEmitter<string>
+    this.select.emit(this.user.id); // If we pass a number to select, it shows up a warning error because new EventEmitter<string>
   }
 }
