@@ -1,17 +1,12 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgOptimizedImage} from "@angular/common";
+import { type User } from './user.model'
 
 // type User = {
 //   id: string
 //   name: string,
 //   avatar: string
 // }
-
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-user',
