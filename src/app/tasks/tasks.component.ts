@@ -38,7 +38,7 @@ export class TasksComponent {
       dueDate: '2025-12-31'
     },
     {
-      id: 't3',
+      id: 't4',
       userId: 'u3',
       title: 'Master Third 4 Angular',
       summary: 'Testing Angular lorem ipsum dolor sit amet',
@@ -48,5 +48,9 @@ export class TasksComponent {
 
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId)
+  }
+
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 }
