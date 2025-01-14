@@ -22,8 +22,9 @@ export class UserComponent {
   // @Input({required: true}) id!: string;
   // @Input({required: true}) avatar!: string
   // @Input({required: true}) name!: string
-  @Input({required: true}) user!: User
-  @Output() select = new EventEmitter<string>() // Adding a type, ensure that value passed to select is string
+  @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
+  @Output() select = new EventEmitter<string>() ;// Adding a type, ensure that value passed to select is string
 
   // this output unlike signal, it is another thing
   // select = output<string>()
