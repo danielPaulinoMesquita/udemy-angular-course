@@ -1,5 +1,7 @@
 import {NewTaskData} from "./task/task.model";
+import {Injectable} from "@angular/core";
 
+@Injectable({providedIn: 'root'})
 export class TasksService {
 
   private tasks = [
@@ -34,6 +36,7 @@ export class TasksService {
   ]
 
   getUserTasks(userId:string) {
+    console.log("Chegou aqui no srevice")
     return this.tasks.filter((task) => task.userId === userId)
   }
 

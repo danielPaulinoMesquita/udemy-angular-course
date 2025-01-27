@@ -19,7 +19,8 @@ export class TasksComponent {
   @Input({required: true}) userId!:string;
   @Input({required: true}) name!: string;
   isAddingTask: boolean = false;
-  private tasksService = new TasksService();
+
+  constructor(private tasksService: TasksService) {}
 
   get selectedUserTasks() {
     return this.tasksService.getUserTasks(this.userId)
@@ -37,8 +38,8 @@ export class TasksComponent {
     this.isAddingTask = false
   }
 
-  onAddTask (taskData: NewTaskData, userId: string) {
-    this.tasksService.addTask(taskData, userId)
+  onAddTask (taskData: NewTaskData) {
+    this.tasksService.addTask(taskData, this.userId)
     this.isAddingTask = false;
   }
 }
