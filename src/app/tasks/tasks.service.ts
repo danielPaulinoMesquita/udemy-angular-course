@@ -44,7 +44,6 @@ export class TasksService {
   }
 
   getUserTasks(userId:string) {
-    console.log("Chegou aqui no srevice")
     return this.tasks.filter((task) => task.userId === userId)
   }
 
